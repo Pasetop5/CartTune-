@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CarTune User Dashboard</title>
+
+    <!-- Thymeleaf link to styles.css -->
+    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css" />
+
+    <!-- Bootstrap CDN for additional styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Header Section -->
+<header>
+    <img class="logo" src="/Assests/CarTubelogo.png" alt="CarTune Logo">
+    <nav>
+        <ul class="nav-links">
+            <li><a th:href="@{/HomePage}">Home</a></li>
+            <li><a th:href="@{/CarInfo}">Services</a></li>
+            <li><a th:href="@{/CarImages}">Car Insights</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Container for header and search form -->
+<h1>Appointment List</h1>
+
+<div class="Dashboard_container">
+    <!-- Display welcome message only if user and fullName are not null -->
+    <h2 th:if="${user != null && user.fullName != null}"> Welcome, [[${user.fullName}]] </h2>
+</div>
+
+<div class="Dashboard_container">
+    <span sec:authorize="isAuthenticated">
+        <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+    </span>
+</div>
+
+<!-- Success Message -->
+<div class="message" th:if="${message != null}">
+    [[${message}]]
+</div>
+
+<div class="adminSearch">
+    <!-- Search Form -->
+    <form th:action="@{/search/appointment}" method="post" class="form-inline search-form">
+        <label for="appointmentID">Search by Appointment ID:</label>
+        <input type="text" id="appointmentID" name="appointmentID" class="form-control mr-2" required>
+
+        <div class="m-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Display search result if present -->
+<div th:if="${appointment != null}">
+    <h2>Search Result:</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Appointment ID</th>
+            <th>Car Name</th>
+            <th>Problem Description</th>
+            <th>Car Model</th>
+            <th>Appointment Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${appointment.appointmentID}">Appointment ID</td>
+            <td th:text="${appointment.carName}">Car Name</td>
+            <td th:text="${appointment.carProblemDescription}">Problem Description</td>
+            <td th:text="${appointment.carModel}">Car Model</td>
+            <td th:text="${appointment.appointmentDate}">Appointment Date</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:if="${errorMessage != null}" class="alert alert-danger">
+    <p>Error occurred: <span th:text="${errorMessage}">Appointment not found</span></p>
+</div>
+
+
+<div th:if="${isSearchMade}">
+    <a th:href="@{/admin}" class="btn btn-primary">View All Appointments</a>
+</div>
+
+<!-- Appointment list -->
+<div class="container">
+    <table class="table table-striped table-hover table-bordered table-responsive-md mx-auto">
+        <thead>
+        <tr>
+            <th>Full name</th>
+            <th>Appointment ID</th>
+            <th>Car Name</th>
+            <th>Car Problem Description</th>
+            <th>Car Model</th>
+            <th>Appointment Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${listAppointments}">
+            <td th:text="${appointment.user.firstName} + ' ' + ${appointment.user.lastName}">User Full Name</td>
+            <td th:text="${appointment.appointmentID}">Appointment ID</td>
+            <td th:text="${appointment.carName}">Car Name</td>
+            <td th:text="${appointment.carProblemDescription}">Problem Description</td>
+            <td th:text="${appointment.carModel}">Car Model</td>
+            <td th:text="${appointment.appointmentDate}">Appointment Date</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 CarTune, All Rights Reserved</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- External JS Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

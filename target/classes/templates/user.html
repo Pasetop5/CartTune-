@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>CarTune User Dashboard</title>
+  
+  <!-- Thymeleaf link to styles.css -->
+  <link rel="stylesheet" th:href="@{/styles.css}" type="text/css" />
+  
+  <!-- Bootstrap CDN for additional styles -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <img class="logo" src="/Assests/CarTubelogo.png" alt="CarTune Logo">
+    <nav>
+      <ul class="nav-links">
+        <li><a th:href="@{/HomePage}">Home</a></li>
+        <li><a th:href="@{/CarInfo}">Services</a></li>
+        <li><a th:href="@{/CarImages}">Car Insights</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dashboard Section -->
+  <div class="Dashboard">
+    <h1>User Dashboard</h1>
+
+
+    <div class="Dashboard_container">
+      <h2> Welcome, [[${user.fullName}]] </h2>
+</div>
+
+      <div class="Dashboard_container">
+      <span sec:authorize="isAuthenticated">
+
+        <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="message" th:if="${message != null}">
+    [[${message}]]
+  </div>
+
+  <!-- Appointment Form Section -->
+  <div class="appointmentform">
+    <h1>Create an Appointment</h1>
+    <form th:action="@{/saveAppointment}" th:object="${appointment}" method="POST">
+      <div class="form-group">
+        <label for="carName"><i class="fas fa-car"></i> Car Name:</label>
+        <input type="text" id="carName" th:field="*{carName}" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="carProblemDescription"><i class="fas fa-wrench"></i> Car Problem Description:</label>
+        <textarea id="carProblemDescription" th:field="*{carProblemDescription}" class="form-control" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="carModel"><i class="fas fa-cogs"></i> Car Model:</label>
+        <input type="text" id="carModel" th:field="*{carModel}" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="appointmentDate"><i class="fas fa-calendar-alt"></i> Appointment Date:</label>
+        <input type="date" id="appointmentDate" th:field="*{appointmentDate}" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-success">Save Appointment</button>
+    </form>
+  </div>
+
+  <!-- View Appointments Button -->
+  <div class="mt-3">
+    <a th:href="@{/user/appointments}" class="btn btn-primary">View My Appointments</a>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 CarTune, All Rights Reserved</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>CarTune Registration</title>
+  
+  <!-- Link to CSS file with Thymeleaf syntax -->
+  <link rel="stylesheet" th:href="@{/styles.css}" type="text/css" />
+</head>
+
+<body>
+ 
+
+  <header>
+    <img class="logo" src="/Assests/CarTubelogo.png" alt="CarTune Logo">
+    <nav>
+        <ul class="nav-links">
+    
+
+          <li><a th:href="@{/HomePage}">Home</a></li>
+            <li><a th:href="@{/CarInfo}">Services</a></li>
+            <li><a th:href="@{/CarImages}">Car Insights</a></li>
+            
+        </ul>
+    </nav>
+      <!-- Call-to-action button for Sign-in -->
+  <div class="cta">
+
+    <button onclick="window.location.href='/login';">Sign in</button>
+  </div>
+</header>
+
+  <div class="container">
+    <div class="image-section"></div> <!-- Placeholder for the image section -->
+
+    <div class="form-section">
+      <h1>CarTune Registration - Sign Up</h1>
+
+      <!-- Display message if available -->
+      <div class="message" th:if="${message != null}">
+        [[${message}]]
+      </div>
+
+      <!-- Registration form -->
+      <form th:action="@{/registration}" method="post" th:object="${user}" style="max-width:600px; margin:0 auto;">
+        
+        <!-- First Name Field -->
+        <div class="form-group m-3">
+          <label class="col-form-label col-12">First Name</label>
+          <div class="col-12">
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required />
+          </div>
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="form-group m-3">
+          <label class="col-form-label col-12">Last Name</label>
+          <div class="col-12">
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required minlength="2" maxlength="22" />
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group m-3">
+          <label class="col-form-label col-12">E-mail</label>
+          <div class="col-12">
+            <input type="email" class="form-control" id="email" th:field="*{email}" required minlength="6" maxlength="40" />
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group m-3">
+          <label class="col-form-label col-12">Password</label>
+          <div class="col-12">
+            <input type="password" class="form-control" id="password" th:field="*{password}" required minlength="2" maxlength="22" />
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="m-3">
+          <button type="submit" class="formbutton">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+
+<footer>
+  <div class="footer-content">
+      <p>&copy; 2024 CarTune, All Rights Reserved</p>
+      <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</html>

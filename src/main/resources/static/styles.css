@@ -1,0 +1,373 @@
+/* Global Reset and Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header and Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background-color: #5874d2;
+  color: white;
+}
+
+.logo {
+  width: 70px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #9dda0e;
+}
+
+/* CTA Button (visible only on pages that need it) */
+.cta {
+  margin-left: 30px;
+  color: white;
+}
+
+.cta button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #9dda0e;
+  color: #333;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta button:hover {
+  background-color: #007BFF;
+}
+
+/* Container and Form Section (e.g., for login or signup pages) */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  background-image: url('./Assests/CarImage.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+}
+
+
+/* Dashboard Styling */
+.Dashboard {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.Dashboard h1 {
+  color: #007bff;
+  font-size: 2.5em;
+}
+
+/* Form Styling */
+.appointmentform {
+  background-color: white;
+  padding: 30px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.appointmentform h1 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.1em;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Appointment Links */
+.mt-3 a {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.mt-3 a:hover {
+  background-color: #0056b3;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #17c26c;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+
+
+.formbutton{
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+
+}
+
+.formbutton:hover {
+  background-color: #06b936;
+}
+
+
+.form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(34, 34, 35, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Services Section (e.g., for a services page) */
+.services {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.services h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.service-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.service-item {
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.service-item i {
+  font-size: 3rem;
+  color: #007BFF;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-item i:hover {
+  transform: scale(1.2);
+  color: #24ae28c3;
+}
+
+.service-item p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #9dda0e;
+}
+
+/* Video Background Section */
+.video-background-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.video-overlay-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.video-overlay-content p {
+  font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-links {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+  }
+
+  .service-icons {
+      flex-direction: column;
+  }
+
+  .service-item {
+      margin-bottom: 20px;
+  }
+
+  .video-overlay-content h1 {
+      font-size: 2rem;
+  }
+
+  .video-overlay-content p {
+      font-size: 1rem;
+  }
+}
