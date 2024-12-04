@@ -1,6 +1,8 @@
 package finalCarTune.CARTUNE.Model;
 
 public class CarInfo {
+
+    // Attributes
     private int city_mpg;
     private String carClass;
     private int combination_mpg;
@@ -15,6 +17,8 @@ public class CarInfo {
     private int year;
     private String color; // added for color field
     private String type; // added for type field
+
+    
 
     @Override
     public String toString() {

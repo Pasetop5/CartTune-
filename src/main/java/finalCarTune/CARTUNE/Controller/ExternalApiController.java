@@ -10,9 +10,7 @@ import finalCarTune.CARTUNE.Service.CarService;
 import finalCarTune.CARTUNE.Model.CarImage;
 import finalCarTune.CARTUNE.Model.CarInfo;
 
-// import java.io.IOException;
-// import java.util.Map;
-// import java.util.List;
+
 
 @Controller
 public class ExternalApiController {
@@ -24,7 +22,7 @@ public class ExternalApiController {
     public String ContactMap(Model model) {
         CarImage[] carImages = carService.getCarImagesAndDescriptions();
         model.addAttribute("carImages", carImages);
-        return "contact-us";
+        return "contact-us"; // name of the html template
     }
 
 
@@ -36,7 +34,7 @@ public class ExternalApiController {
 
         model.addAttribute("carDetails", carDetails);
 
-        return "car-insight"; // Make sure this matches the name of your HTML template
+        return "car-insight"; // name of the html template
     }
 
 }

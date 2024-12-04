@@ -2,11 +2,15 @@ package finalCarTune.CARTUNE.Dto;
 
 public class UserDto {
 
+
+    // variables
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String role;
+
+    //constructor
 
     public UserDto(String firstName, String lastName, String email, String password, String role) {
         this.firstName = firstName;

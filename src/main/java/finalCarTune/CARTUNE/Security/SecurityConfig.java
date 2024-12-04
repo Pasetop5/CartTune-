@@ -1,8 +1,6 @@
 package finalCarTune.CARTUNE.Security;
 
 
-import finalCarTune.CARTUNE.Service.CustomSuccessHandler;
-import finalCarTune.CARTUNE.Service.CustomUSerDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,20 +12,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import finalCarTune.CARTUNE.Service.CustomSuccessHandler;
+import finalCarTune.CARTUNE.Service.CustomUSerDetailService;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Autowired
-    CustomSuccessHandler customSuccessHandler;
+    CustomSuccessHandler customSuccessHandler; // dependency injection
 
 
 @Autowired
-    CustomUSerDetailService customUSerDetailService;
+    CustomUSerDetailService customUSerDetailService;// dependency injection
 
 
     @Bean
-    public static PasswordEncoder passwordEncoder(){
+    public static PasswordEncoder passwordEncoder(){ // password encoder
         return  new BCryptPasswordEncoder();
 
     }
